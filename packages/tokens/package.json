@@ -1,0 +1,15 @@
+{
+  "name": "@gymtrack/tokens",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tres colores, una fuente y los radios de GymTrack: preset de Tailwind y objeto JS",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./tailwind.preset": "./tailwind.preset.js"
+  }
+}

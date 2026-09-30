@@ -1,0 +1,16 @@
+{
+  "name": "gymtrack",
+  "private": true,
+  "packageManager": "pnpm@12.6.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter mobile start",
+    "android": "pnpm --filter mobile android",
+    "web": "pnpm --filter mobile web",
+    "typecheck": "pnpm --filter mobile run typecheck",
+    "lint": "pnpm -r --if-present run lint",
+    "export:android": "pnpm --filter mobile run export:android"
+  }
+}
