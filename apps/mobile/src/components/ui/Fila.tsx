@@ -1,14 +1,9 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Fila · Zona: Kit de interfaz
-//
-// Qué hace: una fila de lista dentro de una tarjeta: contenido a la izquierda, algo chico a la
-// derecha y una línea abajo. Con onPress se vuelve tocable.
-// Depende de: nada propio.
-// ─────────────────────────────────────────────────────────────────────────────
+// Fila: una fila de lista dentro de una tarjeta: contenido a la izquierda, algo chico a la derecha
+// y una línea abajo. Con onPress se vuelve tocable.
 import type { ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
 
-/** `ultimo` quita la línea de abajo para no dibujar un borde doble con el de la tarjeta. */
+// `ultimo` quita la línea de abajo para no dibujar un borde doble con el de la tarjeta.
 export function Fila({
   onPress,
   izquierda,

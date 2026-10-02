@@ -1,13 +1,6 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Preset de Tailwind · Zona: Diseño
-//
-// Qué hace: traduce los tokens de index.js a clases de Tailwind/NativeWind: bg-primario,
+// Preset de Tailwind: traduce los tokens de index.js a clases de Tailwind/NativeWind: bg-primario,
 // text-tinta, bg-fondo, font-sans-bold, rounded-card. La app lo carga desde
 // apps/mobile/tailwind.config.js junto con el preset de NativeWind.
-// Tócalo cuando: agregues una clave nueva en index.js y quieras que exista como clase.
-// No lo toques para: cambiar un valor (un hexadecimal, un radio): eso va en index.js.
-// Depende de: ./index.js (colors, fonts, radius).
-// ─────────────────────────────────────────────────────────────────────────────
 
 const { colors, fonts, radius } = require('./index.js');
 

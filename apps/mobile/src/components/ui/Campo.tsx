@@ -1,13 +1,7 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Campo · Zona: Kit de interfaz
-//
-// Qué hace: los campos de texto de la app. Campo es un TextInput normal para texto que vive en
-// el estado de la pantalla (el nombre de una lista nueva antes de crearla). EntradaDiferida y
-// CampoDiferido entregan el texto solo al salir del campo, para no escribir en el store (y en
-// el teléfono) con cada tecla. CampoNumero es la cajita chica para series, reps y kilos.
-// Tócalo cuando: quieras cambiar cómo se ven todos los campos o cuándo confirman.
-// Depende de: colors de packages/tokens, Txt (./Txt) y parseNumero/fmtNum (@/lib/formato).
-// ─────────────────────────────────────────────────────────────────────────────
+// Campo: los campos de texto de la app. Campo es un TextInput normal para texto que vive en el
+// estado de la pantalla (el nombre de una lista nueva antes de crearla). EntradaDiferida y
+// CampoDiferido entregan el texto solo al salir del campo, para no escribir en el store (y en el
+// teléfono) con cada tecla. CampoNumero es la cajita chica para series, reps y kilos.
 import { colors } from '@gymtrack/tokens';
 import { useEffect, useRef, useState } from 'react';
 import { TextInput, View, type TextInputProps } from 'react-native';
@@ -18,8 +12,8 @@ import { Txt } from './Txt';
 const PLACEHOLDER = `${colors.tinta}66`;
 const ESTILO_CAMPO = 'rounded-field border border-tinta/10 bg-tinta/5 px-4 py-3 font-sans text-base text-tinta';
 
-// ── Campo simple (estado local) ──────────────────────────────────────────────
-/** Campo controlado con etiqueta opcional. Para texto que vive en un useState de la pantalla. */
+// Campo simple (estado local)
+// Campo controlado con etiqueta opcional. Para texto que vive en un useState de la pantalla.
 export function Campo({ etiqueta, className = '', ...p }: TextInputProps & { etiqueta?: string; className?: string }) {
   return (
     <View className={`gap-1.5 ${className}`}>
@@ -29,11 +23,9 @@ export function Campo({ etiqueta, className = '', ...p }: TextInputProps & { eti
   );
 }
 
-// ── Entrada diferida ─────────────────────────────────────────────────────────
-/**
- * TextInput que confirma al perder el foco, al enviar o al desmontarse. `valor` es el texto
- * inicial (del store) y `onConfirmar` se llama con el texto final, solo si cambió.
- */
+// Entrada diferida
+// TextInput que confirma al perder el foco, al enviar o al desmontarse. `valor` es el texto
+// inicial (del store) y `onConfirmar` se llama con el texto final, solo si cambió.
 export function EntradaDiferida({
   valor,
   onConfirmar,
@@ -53,6 +45,7 @@ export function EntradaDiferida({
     onConfirmarRef.current = onConfirmar;
   });
 
+  // Entrega el texto solo si cambió desde la última confirmación.
   const confirmar = () => {
     if (ultimo.current === confirmado.current) return;
     confirmado.current = ultimo.current;
@@ -82,7 +75,7 @@ export function EntradaDiferida({
   );
 }
 
-/** EntradaDiferida con etiqueta y el mismo estilo de Campo. Es el campo que va con el store. */
+// EntradaDiferida con etiqueta y el mismo estilo de Campo. Es el campo que va con el store.
 export function CampoDiferido({
   etiqueta,
   className = '',
@@ -101,12 +94,10 @@ export function CampoDiferido({
   );
 }
 
-// ── Campo numérico ───────────────────────────────────────────────────────────
-/**
- * Cajita numérica con etiqueta arriba ("Series", "Reps", "Kg"). Pensada para ir de a tres en
- * una fila: ocupa el ancho que le toca con flex-1. Confirma al salir del campo; un texto vacío o
- * inválido se descarta y vuelve al valor anterior. `decimal` deja escribir "47,5".
- */
+// Campo numérico
+// Cajita numérica con etiqueta arriba ("Series", "Reps", "Kg"). Pensada para ir de a tres en
+// una fila: ocupa el ancho que le toca con flex-1. Confirma al salir del campo; un texto vacío o
+// inválido se descarta y vuelve al valor anterior. `decimal` deja escribir "47,5".
 export function CampoNumero({
   etiqueta,
   valor,

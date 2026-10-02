@@ -1,11 +1,5 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Pestañas · Zona: Rutas
-//
-// Qué hace: define las dos pestañas de abajo (Listas y Bitácora) y dibuja la barra a mano, con
+// Pestañas: define las dos pestañas de abajo (Listas y Bitácora) y dibuja la barra a mano, con
 // texto y sin iconos: la activa va con fondo menta.
-// Tócalo cuando: agregues, quites o reordenes una pestaña, o cambies cómo se ve la barra.
-// Depende de: @gymtrack/tokens (colors).
-// ─────────────────────────────────────────────────────────────────────────────
 import { colors } from '@gymtrack/tokens';
 import { Tabs } from 'expo-router';
 import { Pressable, Text, View } from 'react-native';
@@ -22,6 +16,7 @@ interface PropsBarra {
   };
 }
 
+// Barra inferior hecha a mano: un botón por pestaña; la activa va en menta.
 function BarraPestanas({ state, descriptors, navigation }: PropsBarra) {
   const insets = useSafeAreaInsets();
   return (
@@ -32,6 +27,7 @@ function BarraPestanas({ state, descriptors, navigation }: PropsBarra) {
       {state.routes.map((route, index) => {
         const activo = state.index === index;
         const titulo = descriptors[route.key]?.options.title ?? route.name;
+        // Avisa el toque (por si una pantalla quiere frenarlo) y cambia de pestaña si no es la activa.
         const onPress = () => {
           const evento = navigation.emit({ type: 'tabPress', target: route.key, canPreventDefault: true });
           if (!activo && !evento.defaultPrevented) navigation.navigate(route.name);
@@ -53,7 +49,7 @@ function BarraPestanas({ state, descriptors, navigation }: PropsBarra) {
   );
 }
 
-/** El orden de los Tabs.Screen es el orden en la barra. `index` es Listas. */
+// El orden de los Tabs.Screen es el orden en la barra. `index` es Listas.
 export default function TabsLayout() {
   return (
     <Tabs

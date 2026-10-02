@@ -1,22 +1,19 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Pestaña Bitácora · Zona: Rutas
-//
-// Qué hace: muestra las entradas de la bitácora de la más nueva a la más vieja. Deja crear una
-// entrada vacía o a partir de una lista (copia sus ejercicios). Al tocar una se abre su editor
+// Pestaña Bitácora: muestra las entradas de la bitácora de la más nueva a la más vieja. Deja crear
+// una entrada vacía o a partir de una lista (copia sus ejercicios). Al tocar una se abre su editor
 // (bitacora/[id]).
-// Depende de: @/store/useStore, @/components/ui y @/lib/formato (fmtFecha).
-// ─────────────────────────────────────────────────────────────────────────────
 import { router } from 'expo-router';
 import { Text, View } from 'react-native';
 import { Boton, Cabecera, Etiqueta, Fila, Pantalla, Separador, Tarjeta, Txt, Vacio } from '@/components/ui';
 import { fmtFecha } from '@/lib/formato';
 import { useStore } from '@/store/useStore';
 
+// Pantalla Bitácora: botones para crear entradas y lista de entradas con su avance (hechos/total).
 export default function Bitacora() {
   const bitacora = useStore((s) => s.bitacora);
   const listas = useStore((s) => s.listas);
   const crearEntrada = useStore((s) => s.crearEntrada);
 
+  // Crea una entrada (desde una lista o vacía) y abre su editor.
   const nueva = (listaId?: string) => {
     const e = crearEntrada(listaId);
     router.push(`/bitacora/${e.id}`);

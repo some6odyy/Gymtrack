@@ -1,11 +1,5 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Boton · Zona: Kit de interfaz
-//
-// Qué hace: los botones de la app. Boton es el de texto (Guardar, Crear lista, Eliminar);
+// Boton: los botones de la app. Boton es el de texto (Guardar, Crear lista, Eliminar);
 // BotonRedondo es el circulito con un signo (subir, bajar, quitar).
-// Tócalo cuando: quieras cambiar el tamaño o el color de todos los botones.
-// Depende de: nada propio.
-// ─────────────────────────────────────────────────────────────────────────────
 import { Pressable, Text, type PressableProps } from 'react-native';
 
 // Tres variantes con los tres colores: lleno en menta, suave en menta y con borde de tinta.
@@ -17,7 +11,7 @@ const BOTONES = {
 
 export type VarianteBoton = keyof typeof BOTONES;
 
-/** Botón con texto. `chico` para la versión compacta que cabe en una fila. */
+// Botón con texto. `chico` para la versión compacta que cabe en una fila.
 export function Boton({
   titulo,
   variante = 'primario',
@@ -41,7 +35,7 @@ export function Boton({
   );
 }
 
-/** Botón circular con un solo signo. Pásale siempre `etiqueta` para el lector de pantalla. */
+// Botón circular con un solo signo. Pásale siempre `etiqueta` para el lector de pantalla.
 export function BotonRedondo({
   glifo,
   onPress,

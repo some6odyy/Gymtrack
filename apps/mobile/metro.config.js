@@ -1,18 +1,7 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Config de Metro · Zona: Configuración
-//
-// Qué hace: configura Metro, el empaquetador que junta todo el código de la app para el
+// Config de Metro: configura Metro, el empaquetador que junta todo el código de la app para el
 // teléfono y para web. Parte de la config que trae Expo (que desde el SDK 52 ya entiende el
-// monorepo: encuentra @gymtrack/tokens sin nada extra) y le suma NativeWind,
-// que compila global.css con Tailwind y mete el resultado en el bundle para que las clases
-// funcionen.
-// Tócalo cuando: cambies el archivo css de entrada, necesites que Metro resuelva una extensión
-// nueva (por ejemplo .svg como componente) o agregues otra transformación al bundle.
-// No lo toques para: decidir qué clases existen (packages/tokens/tailwind.preset.js) ni qué
-// carpetas escanea Tailwind (apps/mobile/tailwind.config.js).
-// Depende de: ./global.css (las tres directivas de Tailwind). De rebote lee tailwind.config.js,
-// que es donde NativeWind busca los presets.
-// ─────────────────────────────────────────────────────────────────────────────
+// monorepo: encuentra @gymtrack/tokens sin nada extra) y le suma NativeWind, que compila
+// global.css con Tailwind y mete el resultado en el bundle para que las clases funcionen.
 
 const { getDefaultConfig } = require('expo/metro-config');
 const { withNativeWind } = require('nativewind/metro');

@@ -1,23 +1,15 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Editor de ejercicio · Zona: Componentes compartidos
-//
-// Qué hace: las dos piezas que comparten el editor de listas y el de la bitácora.
-// TarjetaEjercicio es un ejercicio editable (nombre, series, reps, kilos) con sus botones; en
-// la bitácora suma el botón de "hecho". AgregarEjercicio es el campo + botón para sumar uno.
-// Tócalo cuando: quieras cambiar cómo se ve o qué se edita de un ejercicio en ambas pantallas.
-// Depende de: @/components/ui y @/store/tipos.
-// ─────────────────────────────────────────────────────────────────────────────
+// Editor de ejercicio: las dos piezas que comparten el editor de listas y el de la bitácora.
+// TarjetaEjercicio es un ejercicio editable (nombre, series, reps, kilos) con sus botones; en la
+// bitácora suma el botón de "hecho". AgregarEjercicio es el campo + botón para sumar uno.
 import { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { Boton, BotonRedondo, Campo, CampoNumero, EntradaDiferida, Tarjeta } from '@/components/ui';
 import type { CambiosEjercicio } from '@/store/useStore';
 import type { EjercicioLista } from '@/store/tipos';
 
-// ── Un ejercicio ─────────────────────────────────────────────────────────────
-/**
- * Tarjeta de un ejercicio. `onCambio` recibe solo el campo que cambió. Si pasas `onSubir` y
- * `onBajar` aparecen las flechas para ordenar; si pasas `hecho` y `onHecho`, el casillero.
- */
+// Un ejercicio
+// Tarjeta de un ejercicio. `onCambio` recibe solo el campo que cambió. Si pasas `onSubir` y
+// `onBajar` aparecen las flechas para ordenar; si pasas `hecho` y `onHecho`, el casillero.
 export function TarjetaEjercicio({
   ejercicio,
   onCambio,
@@ -72,10 +64,11 @@ export function TarjetaEjercicio({
   );
 }
 
-// ── Agregar ejercicio ────────────────────────────────────────────────────────
-/** Campo con el nombre y botón para sumar un ejercicio al final. */
+// Agregar ejercicio
+// Campo con el nombre y botón para sumar un ejercicio al final.
 export function AgregarEjercicio({ onAgregar }: { onAgregar: (nombre: string) => void }) {
   const [nombre, setNombre] = useState('');
+  // Avisa el nombre escrito a la pantalla y limpia el campo.
   const agregar = () => {
     onAgregar(nombre);
     setNombre('');

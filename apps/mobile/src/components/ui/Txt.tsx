@@ -1,12 +1,5 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Txt · Zona: Kit de interfaz
-//
-// Qué hace: es el texto de toda la app. En vez de repetir fuente, tamaño y color en cada
-// pantalla, se elige una variante con nombre: titulo, h2, cuerpo, secundario, etiqueta.
-// Tócalo cuando: quieras cambiar cómo se ve un tipo de texto en todas partes.
-// No lo toques para: cambiar un color o la fuente de raíz (packages/tokens/index.js).
-// Depende de: nada propio.
-// ─────────────────────────────────────────────────────────────────────────────
+// Txt: es el texto de toda la app. En vez de repetir fuente, tamaño y color en cada pantalla, se
+// elige una variante con nombre: titulo, h2, cuerpo, secundario, etiqueta.
 import { Text, type TextProps } from 'react-native';
 
 // Cada variante trae fuente, tamaño y color. Solo se usa la tinta, entera o con opacidad.
@@ -21,7 +14,7 @@ const VARIANTES = {
 
 export type VarianteTxt = keyof typeof VARIANTES;
 
-/** Texto con estilo por variante. Úsalo en vez de <Text> en las pantallas. */
+// Texto con estilo por variante. Úsalo en vez de <Text> en las pantallas.
 export function Txt({ v = 'cuerpo', className = '', ...p }: TextProps & { v?: VarianteTxt; className?: string }) {
   return <Text className={`${VARIANTES[v]} ${className}`} {...p} />;
 }

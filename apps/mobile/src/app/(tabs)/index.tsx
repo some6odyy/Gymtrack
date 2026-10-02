@@ -1,21 +1,18 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Pestaña Listas · Zona: Rutas
-//
-// Qué hace: muestra las listas de ejercicios guardadas y deja crear una nueva. Al tocar una se
-// abre su editor (lista/[id]).
-// Depende de: @/store/useStore y @/components/ui.
-// ─────────────────────────────────────────────────────────────────────────────
+// Pestaña Listas: muestra las listas de ejercicios guardadas y deja crear una nueva. Al tocar una
+// se abre su editor (lista/[id]).
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Boton, Cabecera, Campo, Etiqueta, Fila, Pantalla, Separador, Tarjeta, Txt, Vacio } from '@/components/ui';
 import { useStore } from '@/store/useStore';
 
+// Pantalla Listas: formulario para crear una lista y tarjeta con todas las listas guardadas.
 export default function Listas() {
   const listas = useStore((s) => s.listas);
   const crearLista = useStore((s) => s.crearLista);
   const [nombre, setNombre] = useState('');
 
+  // Crea la lista con el nombre escrito, limpia el campo y abre su editor.
   const crear = () => {
     const l = crearLista(nombre);
     setNombre('');

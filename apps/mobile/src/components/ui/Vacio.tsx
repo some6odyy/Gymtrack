@@ -1,16 +1,11 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Vacio · Zona: Kit de interfaz
-//
-// Qué hace: dos avisos. Vacio es el estado vacío de una lista ("Todavía no hay entradas");
-// Confirmar es la pregunta en línea antes de borrar algo, con su botón de sí y el de cancelar.
-// Depende de: Boton, Tarjeta y Txt (esta carpeta).
-// ─────────────────────────────────────────────────────────────────────────────
+// Vacio: dos avisos. Vacio es el estado vacío de una lista ("Todavía no hay entradas"); Confirmar
+// es la pregunta en línea antes de borrar algo, con su botón de sí y el de cancelar.
 import { View } from 'react-native';
 import { Boton } from './Boton';
 import { Tarjeta } from './Tarjeta';
 import { Txt } from './Txt';
 
-/** Tarjeta centrada para cuando una lista no tiene nada que mostrar. */
+// Tarjeta centrada para cuando una lista no tiene nada que mostrar.
 export function Vacio({ titulo, texto }: { titulo: string; texto?: string }) {
   return (
     <Tarjeta className="items-center gap-2 py-8">
@@ -26,10 +21,8 @@ export function Vacio({ titulo, texto }: { titulo: string; texto?: string }) {
   );
 }
 
-/**
- * Confirmación en línea: funciona igual en Android y en web, sin diálogos nativos
- * (Alert.alert con botones no funciona en web).
- */
+// Confirmación en línea: funciona igual en Android y en web, sin diálogos nativos
+// (Alert.alert con botones no funciona en web).
 export function Confirmar({
   pregunta,
   si,

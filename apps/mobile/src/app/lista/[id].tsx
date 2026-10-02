@@ -1,10 +1,5 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Editor de lista · Zona: Rutas
-//
-// Qué hace: edita una lista de ejercicios: el nombre, y agregar, editar, ordenar y quitar
+// Editor de lista: edita una lista de ejercicios: el nombre, y agregar, editar, ordenar y quitar
 // ejercicios. Desde acá se registra la lista en la bitácora o se elimina. Todo se guarda solo.
-// Depende de: @/store/useStore, @/components/ui y @/components/EditorEjercicio.
-// ─────────────────────────────────────────────────────────────────────────────
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { View } from 'react-native';
@@ -12,6 +7,7 @@ import { AgregarEjercicio, TarjetaEjercicio } from '@/components/EditorEjercicio
 import { Boton, Cabecera, CampoDiferido, Confirmar, Pantalla, Separador, Txt, Vacio } from '@/components/ui';
 import { useStore } from '@/store/useStore';
 
+// Editor de una lista: nombre, ejercicios (editar, ordenar, quitar, agregar), registrar en bitácora y eliminar.
 export default function EditorLista() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const lista = useStore((s) => s.listas.find((l) => l.id === id));
@@ -27,6 +23,7 @@ export default function EditorLista() {
     );
   }
 
+  // Crea una entrada de bitácora copiando esta lista y la abre en lugar del editor.
   const registrar = () => {
     const e = s.crearEntrada(lista.id);
     router.replace(`/bitacora/${e.id}`);

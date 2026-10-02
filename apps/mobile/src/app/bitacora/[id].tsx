@@ -1,10 +1,6 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Editor de entrada de bitácora · Zona: Rutas
-//
-// Qué hace: edita una entrada de la bitácora: título, cada ejercicio (marcar como hecho, series,
-// reps, kilos), agregar o quitar ejercicios y una nota libre. Todo se guarda solo.
-// Depende de: @/store/useStore, @/components/ui, @/components/EditorEjercicio y @/lib/formato.
-// ─────────────────────────────────────────────────────────────────────────────
+// Editor de entrada de bitácora: edita una entrada de la bitácora: título, cada ejercicio (marcar
+// como hecho, series, reps, kilos), agregar o quitar ejercicios y una nota libre. Todo se guarda
+// solo.
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { View } from 'react-native';
@@ -13,6 +9,7 @@ import { Boton, Cabecera, CampoDiferido, Confirmar, Pantalla, Separador, Txt, Va
 import { fmtFecha } from '@/lib/formato';
 import { useStore } from '@/store/useStore';
 
+// Editor de una entrada: título, ejercicios (hecho, series, reps, kg), nota y eliminar.
 export default function EditorEntrada() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const entrada = useStore((s) => s.bitacora.find((e) => e.id === id));

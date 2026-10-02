@@ -1,9 +1,5 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// Índice del kit · Zona: Kit de interfaz
-//
-// Qué hace: junta todas las piezas del kit para que las pantallas importen desde
+// Índice del kit: junta todas las piezas del kit para que las pantallas importen desde
 // '@/components/ui'. Un archivo nuevo en esta carpeta necesita su línea aquí.
-// ─────────────────────────────────────────────────────────────────────────────
 export * from './Txt';
 export * from './Boton';
 export * from './Tarjeta';
